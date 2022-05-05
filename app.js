@@ -19,12 +19,14 @@ app.post('/upload', async (req, res) => {
   var file = req.body.fileData
   var fileBitSize = file.length * 8
 
+  // lock 'load' key until conditional set ops complete
   client.watch('load')
   var availableLoad = parseInt(await client.get('load'))
   
   console.log('availableLoad ' , availableLoad)
   console.log('fileSize', fileBitSize)
 
+  // If not enough resources are available to process request, return 429 Too Many Requests
   if (availableLoad - fileBitSize <= 0) {
     logRateLimited()
 
@@ -33,15 +35,15 @@ app.post('/upload', async (req, res) => {
     return
   }
 
-  // Decrement resource pool by fileSize
+  // Decrement resource pool by fileSize, return 429 if key is locked
   await client.multi().decrBy('load', fileBitSize).exec()
     .catch(() => {
       res.sendStatus(429)
       return
     })
 
-  logUploadStarted()
   // Simulate S3 upload and replace resources on complete...
+  logUploadStarted()
   await uploadToS3().then(() => {
     client.incrBy('load', fileBitSize)
   })
