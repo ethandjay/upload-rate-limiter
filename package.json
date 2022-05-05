@@ -4,14 +4,15 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "redis-server & npx nodemon app.js",
+    "test": "node testing.js > /dev/null 2>&1 & npm start"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.27.2",
     "express": "^4.18.1",
-    "ioredis": "^5.0.4"
+    "redis": "^4.1.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.16"
