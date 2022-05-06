@@ -4,7 +4,7 @@ This application is a Node.js API designed to simulate rate limiting of file upl
 
 ## Quick Start
 
-Requires `node` and `redis`
+Requires `node` and `redis`, available via HomeBrew on MacOS
 
 ```
 git clone https://github.com/ethandjay/upload-rate-limiter
