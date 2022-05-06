@@ -32,3 +32,5 @@ and `JSON` body:
     "fileData": "Base64EncodedBinaryGoesHere=="
 }
 ```
+### Authorship
+Ethan Jaynes
