@@ -6,7 +6,10 @@ const port = 3000
 app.use(express.json())
 
 const client = redis.createClient()
+
+// Set this value to reflect the desired bandwidth usage
 const LOAD_CAPACITY = 5000
+
 client.connect()
 client.set('load', LOAD_CAPACITY)
 
