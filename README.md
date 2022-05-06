@@ -4,6 +4,8 @@ This application is a Node.js API designed to simulate rate limiting of file upl
 
 ## Quick Start
 
+Requires `node` and `redis`
+
 ```
 git clone https://github.com/ethandjay/upload-rate-limiter
 cd upload-rate-limiter
@@ -13,7 +15,7 @@ npm start
 
 ## Testing
 
-Start the application, and in a separate shell, run:
+Start the application with `npm start`, and in a separate shell, run:
 ```
 npm test
 ```

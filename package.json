@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "redis-server & npx nodemon app.js",
+    "start": "redis-server & node app.js",
     "test": "node testing.js"
   },
   "author": "",
