@@ -19,3 +19,16 @@ Start the application with `npm start`, and in a separate shell, run:
 ```
 npm test
 ```
+
+## Specification
+
+The API expects a `POST` request against `/upload` with header:
+```
+"Content-type": "application/json; charset=UTF-8",
+```
+and `JSON` body:
+```
+{
+    "fileData": "Base64EncodedBinaryGoesHere=="
+}
+```
